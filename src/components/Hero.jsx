@@ -52,8 +52,8 @@ const Hero = () => {
               className="typed"
               aria-hidden="true"
               style={{
-                backgroundImage:
-                  "linear-gradient(to bottom, rgba(245, 202, 153, 0.5), rgba(245, 202, 153, 0.5))",
+                // backgroundImage:
+                //   "linear-gradient(to bottom, rgba(245, 202, 153, 0.5), rgba(245, 202, 153, 0.5))",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "100% 8px",
                 backgroundPosition: "0 100%",

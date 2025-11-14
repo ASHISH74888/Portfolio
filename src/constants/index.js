@@ -33,19 +33,19 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Software Developer",
-    icon: web,
-  },
-  {
-    title: "Web Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
+    title: "Backend Engineer",
     icon: backend,
   },
   {
-    title: "Full Stack Web Developer",
+    title: "API & Integration Developer",
+    icon: web,
+  },
+  {
+    title: "Microservices Architect",
+    icon: mobile,
+  },
+  {
+    title: "Cloud & DevOps Practitioner",
     icon: creator,
   },
 ];
@@ -151,7 +151,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: novalearn,
+    image: "assets/p2p.jpeg",
     source_code_link: "https://github.com/ASHISH74888",
   },
   {
@@ -172,7 +172,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: ponggame,
+    image: "assets/ai.jpeg",
     source_code_link: "https://github.com/ASHISH74888",
   },
   {
@@ -193,7 +193,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: portfolio,
+    image: "/assets/walletmanagementimg.jpeg",
     source_code_link: "https://github.com/ASHISH74888",
   },
 ];
