@@ -108,7 +108,7 @@ const achievements = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Jayant proved me wrong.",
+      "I thought it was impossible to make a website as beautiful as our product, but Ashish proved me wrong.",
     name: "Sara Lee",
     designation: "CFO",
     company: "Acme Co",
@@ -116,7 +116,7 @@ const testimonials = [
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Jayant does.",
+      "I've never met a web developer who truly cares about their clients' success like Ashish does.",
     name: "Chris Brown",
     designation: "COO",
     company: "DEF Corp",
@@ -124,7 +124,7 @@ const testimonials = [
   },
   {
     testimonial:
-      "Jayant boosted our website traffic by 50% through his smart optimization. We are Truly grateful!",
+      "Ashish boosted our website traffic by 50% through his smart optimization. We are Truly grateful!",
     name: "Lisa Wang",
     designation: "CTO",
     company: "456 Enterprises",
@@ -134,41 +134,12 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Nova-Learn",
+    name: "Peer-to-Peer File Transfer System",
     description:
-      "NovaLearn is an AI-powered platform that creates personalized learning paths with interactive content and quizzes. Designed with a futuristic 3D UI, it makes learning immersive, efficient, and goal-driven. 🚀",
+      "Real-time file sharing platform that streams large payloads between devices without centralized servers, pairing secure RESTful middleware with a responsive web client.",
     tags: [
       {
-        name: "node",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "spline",
-        color: "green-text-gradient",
-      },
-      {
-        name: "JavaScript",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Flask",
-        color: "violet-text-gradient",
-      },
-      {
-        name: "sqlite3",
-        color: "orange-text-gradient",
-      },
-    ],
-    image: novalearn,
-    source_code_link: "https://nova-learn-jayant.vercel.app/",
-  },
-  {
-    name: "Multiplayer Pong Game",
-    description:
-      "Multiplayer Pong Game with three modes: Play with a friend online, play side-by-side on the same screen, or challenge an AI opponent. Fast, fun, and competitive — classic Pong with modern multiplayer options! 🕹️🔥",
-    tags: [
-      {
-        name: "socket",
+        name: "nodejs",
         color: "blue-text-gradient",
       },
       {
@@ -176,41 +147,54 @@ const projects = [
         color: "green-text-gradient",
       },
       {
-        name: "JavaScript",
+        name: "ejs",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: novalearn,
+    source_code_link: "https://github.com/ASHISH74888",
+  },
+  {
+    name: "AI Career Path — Guidance App",
+    description:
+      "AI-powered application that recommends tailored learning paths, courses, and job roles to help users navigate their journey into artificial intelligence.",
+    tags: [
+      {
+        name: "python",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "ml",
+        color: "green-text-gradient",
+      },
+      {
+        name: "react",
         color: "pink-text-gradient",
       },
     ],
     image: ponggame,
-    source_code_link: "https://github.com/Jayant-1/Multiplayer_Pong_Game",
+    source_code_link: "https://github.com/ASHISH74888",
   },
   {
-    name: "3D Portfolio",
+    name: "Wallet Rewards Platform",
     description:
-      "A dynamic React JS portfolio with immersive 3D graphics and smooth animations for an engaging user experience. Includes interactive sections like About, Education, Projects, Connect, and Contact. 🎨💻",
+      "Enterprise-grade rewards management system leveraging microservices, cron orchestration, and Cashfree payouts to unlock new monetisation channels for EV charging.",
     tags: [
       {
-        name: "react",
+        name: "typescript",
         color: "blue-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "mongodb",
         color: "green-text-gradient",
       },
       {
-        name: "framer-motion",
+        name: "kafka",
         color: "pink-text-gradient",
-      },
-      {
-        name: "three.js",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "spline",
-        color: "violet-text-gradient",
       },
     ],
     image: portfolio,
-    source_code_link: "https://jayantpotdar.vercel.app/",
+    source_code_link: "https://github.com/ASHISH74888",
   },
 ];
 
@@ -237,4 +221,74 @@ const words = [
   { text: "Code", imgPath: code, font: "'Source Code Pro', monospace" },
 ];
 
-export { achievements, projects, services, testimonials, words };
+const experiences = [
+  {
+    title: "Software Developer Engineer Intern",
+    companyName: "Bolt.Earth",
+    icon: backend,
+    iconBg: "#383E56",
+    date: "Feb 2025 - Present",
+    points: [
+      "Architected event-driven Connectionless Sync system using Kafka, AVRO schema registry, and Elasticsearch pipelines, enabling autonomous raw log synchronization and improving user experience by 90%.",
+      "Engineered wallet rewards management platform with enterprise-grade architecture, microservices, and CRON-driven workflows, generating $5K+ additional revenue through new reward flows.",
+      "Built and deployed scalable REST APIs with Node.js, TypeScript, and MongoDB, enhancing backend efficiency and powering high-volume services.",
+      "Automated BLE charger log processing via Kafka + Elasticsearch, improving booking data reliability and saving $2.4K annually in operational overhead.",
+      "Implemented cron-based monthly revenue transfer system using Cashfree integration with robust idempotency safeguards for transaction reliability.",
+      "Refactored critical dashboard APIs, reducing MongoDB calls from 4 to 1 and improving query performance for 6K+ records.",
+      "Collaborated with cross-functional teams to deliver Sprints and In-App Review features under tight deadlines, ensuring smooth releases aligned with business goals.",
+    ],
+  },
+  {
+    title: "Backend Engineering Intern",
+    companyName: "Celebal Technologies",
+    icon: backend,
+    iconBg: "#E6DEDD",
+    date: "Jun 2024 - Aug 2024",
+    points: [
+      "Designed scalable APIs and cloud services using Node.js, Express.js, and SQL/NoSQL databases.",
+      "Contributed to cloud deployment workflows and backend architecture on AWS.",
+      "Improved API performance, security, and collaborated in agile sprint planning with cross-functional teams.",
+    ],
+  },
+  // {
+  //   title: "Backend Developer",
+  //   companyName: "Tech Projects",
+  //   icon: backend,
+  //   iconBg: "#E6DEDD",
+  //   date: "Aug 2023 - Dec 2023",
+  //   points: [
+  //     "Developed RESTful APIs using Node.js and Express.js",
+  //     "Database design and management using MongoDB and SQL",
+  //     "Implemented authentication and authorization systems",
+  //     "Worked on server optimization and performance tuning",
+  //   ],
+  // },
+  // {
+  //   title: "Frontend Developer",
+  //   companyName: "Learning Projects",
+  //   icon: mobile,
+  //   iconBg: "#383E56",
+  //   date: "May 2023 - July 2023",
+  //   points: [
+  //     "Built responsive UI components using React and Tailwind CSS",
+  //     "Implemented state management with Redux and Context API",
+  //     "Created interactive animations and transitions with Framer Motion",
+  //     "Collaborated on real-time project deployments",
+  //   ],
+  // },
+  // {
+  //   title: "Junior Web Developer",
+  //   companyName: "Portfolio Projects",
+  //   icon: creator,
+  //   iconBg: "#0056d2",
+  //   date: "Jan 2023 - April 2023",
+  //   points: [
+  //     "Started learning web development fundamentals",
+  //     "Built multiple portfolio projects to showcase skills",
+  //     "Learned Git and version control best practices",
+  //     "Developed projects using HTML, CSS, and JavaScript",
+  //   ],
+  // },
+];
+
+export { achievements, experiences, projects, services, testimonials, words };

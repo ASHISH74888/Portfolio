@@ -12,7 +12,7 @@ const NAV_LINKS = [
   },
   {
     title: "achievements",
-    href: "#achievements",
+    href: "#experience",
     img: "/assets/nav-link-previews/achievements.png",
   },
   {
@@ -25,11 +25,11 @@ const NAV_LINKS = [
     href: "#projects",
     img: "/assets/nav-link-previews/projects.png",
   },
-  {
-    title: "testimonials",
-    href: "#testimonials",
-    img: "/assets/nav-link-previews/testimonials.png",
-  },
+  // {
+  //   title: "testimonials",
+  //   href: "#testimonials",
+  //   img: "/assets/nav-link-previews/testimonials.png",
+  // },
   {
     title: "contact",
     href: "#contact",
@@ -91,202 +91,139 @@ const Navbar = () => {
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [hovering, setHovering] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      if (scrollTop > 200) {
+
+      // Check if scrolled past threshold
+      if (scrollTop > 0) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
+
+      // Check scroll direction
+      if (scrollTop > lastScrollY) {
+        setIsScrollingDown(true);
+      } else {
+        setIsScrollingDown(false);
+      }
+
+      setLastScrollY(scrollTop);
     };
 
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <motion.header
-      className={`z-30 fixed top-0 left-0 w-full transition-colors duration-500 ease-in  ${
+      className={`z-30 fixed top-0 left-0 w-full transition-colors duration-500 ease-in ${
         scrolled ? "backdrop-blur-xl" : ""
-      } `}
+      }`}
       style={{
-        background: scrolled ? "rgba(10,10,20,0.8)" : "transparent",
+        background: isScrollingDown
+          ? "transparent"
+          : scrolled
+          ? "linear-gradient(180deg, rgba(10,10,20,0.95) 0%, rgba(15,15,30,0.8) 100%)"
+          : "transparent",
+        boxShadow:
+          scrolled && !isScrollingDown
+            ? "0 10px 40px rgba(142, 173, 255, 0.1)"
+            : "none",
+        transition: "background 0.3s ease-in-out",
       }}
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="flex items-center justify-between max-w-8xl my-2 mx-4 relative">
-        <a href="#hero" className="flex mx-6 items-center justify-center">
-          <span className="text-md">
-            <img src={logo} alt="logo" className="h-16 object-contain" />
-          </span>
-        </a>
-        <button
-          onClick={() => setIsActive((v) => !v)}
-          className="flex items-center justify-center gap-3 m-0 p-0 h-6 bg-transparent text-base font-normal"
-          style={{ margin: window.innerWidth >= 600 ? "20px" : "15px" }}
+      <div className="flex items-center justify-between max-w-8xl mx-auto px-6 py-0">
+        <motion.a
+          href="#hero"
+          className="flex items-center justify-center"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <div
-            className="relative flex items-center text-[22px]"
-            style={{ minWidth: 60 }}
-          >
-            <motion.p
-              variants={opacity}
-              animate={!isActive ? "open" : "closed"}
-              className="transition-opacity"
-              style={{
-                margin: 0,
-                position: !isActive ? "static" : "absolute",
-                left: 0,
-              }}
+          <img
+            src={logo}
+            alt="logo"
+            className="h-24 object-contain mix-blend-screen"
+          />
+        </motion.a>
+
+        <nav className="hidden md:flex items-center gap-8">
+          {NAV_LINKS.map((link, idx) => (
+            <motion.a
+              key={link.title}
+              href={link.href}
+              className="text-white font-semibold text-sm uppercase tracking-wider hover:text-blue-400 transition-colors duration-300 relative group"
+              whileHover={{ scale: 1.05 }}
             >
-              Menu
-            </motion.p>
-            <motion.p
-              variants={opacity}
-              animate={isActive ? "open" : "closed"}
-              className="transition-opacity"
-              style={{
-                margin: 0,
-                position: isActive ? "static" : "absolute",
-                left: 0,
-              }}
-            >
-              Close
-            </motion.p>
-          </div>
-          <div className="relative w-[22.5px] h-[16px] flex flex-col justify-center items-center mx-2">
-            {/* Top line */}
-            <motion.span
-              className="absolute left-0 w-full h-[1px] bg-white block"
-              style={{ top: 0 }}
-              animate={
-                isActive ? { rotate: 45, top: "7.5px" } : { rotate: 0, top: 0 }
-              }
-              transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-            />
-            {/* Middle line */}
-            <motion.span
-              className="absolute left-0 w-full h-[1px] bg-white block"
-              style={{ top: "7.5px" }}
-              animate={
-                isActive
-                  ? { opacity: 0 }
-                  : { opacity: 1, rotate: 0, top: "7.5px" }
-              }
-              transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-            />
-            {/* Bottom line */}
-            <motion.span
-              className="absolute left-0 w-full h-[1px] bg-white block"
-              style={{ top: "15px" }}
-              animate={
-                isActive
-                  ? { rotate: -45, top: "7.5px" }
-                  : { rotate: 0, top: "15px" }
-              }
-              transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-            />
-          </div>
-        </button>
+              {link.title}
+              <motion.span
+                className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-white via-blue-400 to-transparent group-hover:w-full transition-all duration-300"
+                layoutId={`nav-underline-${idx}`}
+              />
+            </motion.a>
+          ))}
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <motion.button
+          onClick={() => setIsActive(!isActive)}
+          className="md:hidden flex flex-col gap-2 focus:outline-none"
+          whileTap={{ scale: 0.95 }}
+        >
+          <motion.span
+            className="w-6 h-0.5 bg-white rounded-full"
+            animate={isActive ? { rotate: 45, y: 11 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.3 }}
+          />
+          <motion.span
+            className="w-6 h-0.5 bg-white rounded-full"
+            animate={isActive ? { opacity: 0 } : { opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          />
+          <motion.span
+            className="w-6 h-0.5 bg-white rounded-full"
+            animate={isActive ? { rotate: -45, y: -11 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.button>
       </div>
-      <motion.div
-        variants={height}
-        initial="initial"
-        animate={isActive ? "enter" : "exit"}
-        className="w-full left-0 absolute"
-        style={{ zIndex: 20, background: "rgba(7,8,13,0.9)" }}
-      >
-        <AnimatePresence>
-          {isActive && (
-            <motion.div
-              className="flex flex-row justify-between items-center w-full max-w-8xl mx-auto relative min-h-[60vh]"
-              style={{ minHeight: 600 }}
-            >
-              <div className="flex flex-wrap items-start gap-1 w-2/3 pl-8">
-                {NAV_LINKS.map((link, idx) => (
-                  <a
-                    key={link.title}
-                    href={link.href}
-                    className="group cursor-pointer rounded-lg px-3 py-2 text-5xl md:text-7xl font-extrabold uppercase transition-all duration-200 whitespace-nowrap text-left relative"
-                    style={{ minHeight: "4.5rem" }}
-                    onMouseOver={() => {
-                      setSelectedIdx(idx);
-                      setHovering(true);
-                    }}
-                    onMouseLeave={() => setHovering(false)}
-                    onClick={() => {
-                      setIsActive(false);
-                      setHovering(false);
-                    }}
-                  >
-                    <motion.p
-                      variants={blur}
-                      animate={
-                        hovering && selectedIdx !== idx ? "open" : "closed"
-                      }
-                      style={{
-                        display: "inline-block",
-                        margin: 0,
-                        color:
-                          selectedIdx === idx && hovering ? "#fff" : "#8eadff",
-                        transition: "color 0.3s, text-shadow 0.3s",
-                        textShadow:
-                          selectedIdx === idx && hovering
-                            ? "0 0 10px #fff, 0 0 100px #121212"
-                            : "none",
-                      }}
-                    >
-                      {getChars(link.title.toUpperCase())}
-                    </motion.p>
-                    <motion.div
-                      layoutId={`${isActive ? "" : "underline"}`}
-                      className="absolute left-0 bottom-0 h-[4px] rounded origin-left"
-                      style={{
-                        background:
-                          selectedIdx === idx && hovering ? "#fff" : "#8eadff",
-                      }}
-                      initial={{ width: 0, opacity: 0 }}
-                      animate={
-                        selectedIdx === idx && hovering
-                          ? { width: "100%", opacity: 1 }
-                          : { width: 0, opacity: 0 }
-                      }
-                      transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
-                    />
-                  </a>
-                ))}
-              </div>
-              {isActive && (
-                <motion.div
-                  variants={opacity}
-                  initial="initial"
-                  animate={hovering ? "open" : "closed"}
-                  className="hidden md:flex items-center justify-start w-1/3 h-full"
-                  style={{ minHeight: 200 }}
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isActive && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-gradient-to-b from-gray-900/50 to-transparent backdrop-blur-sm"
+          >
+            <motion.nav className="flex flex-col gap-4 px-6 py-4">
+              {NAV_LINKS.map((link, idx) => (
+                <motion.a
+                  key={link.title}
+                  href={link.href}
+                  onClick={() => setIsActive(false)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                  className="text-white font-semibold text-lg uppercase tracking-wider hover:text-blue-400 transition-colors duration-300"
                 >
-                  <img
-                    src={NAV_LINKS[selectedIdx].img}
-                    alt={NAV_LINKS[selectedIdx].title}
-                    className="object-cover rounded-lg shadow-lg border border-white/20"
-                    style={{
-                      width: "480px",
-                      height: "270px",
-                      aspectRatio: "16/9",
-                      maxWidth: "90vw",
-                      maxHeight: "60vh",
-                    }}
-                  />
-                </motion.div>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+                  {link.title}
+                </motion.a>
+              ))}
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };

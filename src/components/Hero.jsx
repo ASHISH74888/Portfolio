@@ -33,7 +33,7 @@ const Hero = () => {
   }, [charIndex, itemIndex]);
 
   return (
-    <section className={`relative w-full h-screen mx-auto`} id="hero" >
+    <section className={`relative w-full h-screen mx-auto`} id="hero">
       <div
         className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
       >
@@ -44,7 +44,7 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="text-[#915EFF]">Jayant Potdar</span>
+            Hi, I'm <span className="text-[#915EFF]">Ashish</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             I'm{" "}
@@ -52,25 +52,27 @@ const Hero = () => {
               className="typed"
               aria-hidden="true"
               style={{
-                backgroundImage: "linear-gradient(to bottom, rgba(245, 202, 153, 0.5), rgba(245, 202, 153, 0.5))",
+                backgroundImage:
+                  "linear-gradient(to bottom, rgba(245, 202, 153, 0.5), rgba(245, 202, 153, 0.5))",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "100% 8px",
                 backgroundPosition: "0 100%",
                 color: "#915EFF",
                 display: "inline-block",
-                fontWeight: "bold"
+                fontWeight: "bold",
               }}
             >
               {typedText}
             </span>
-            <span 
-              className="typed-cursor" 
-              aria-hidden="true"
-            >
+            <span className="typed-cursor" aria-hidden="true">
               |
             </span>
             <br />
-            <b>Bring on the challenges, I'm ready to soak up knowledge!</b>
+            <b>
+              I build production-ready backend services, real-time data
+              pipelines, and web experiences that power EV charging
+              infrastructure!!
+            </b>
           </p>
         </div>
       </div>
@@ -79,7 +81,7 @@ const Hero = () => {
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
+          {/* <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
             <motion.div
               animate={{
                 y: [0, 24, 0],
@@ -91,7 +93,7 @@ const Hero = () => {
               }}
               className="w-3 h-3 rounded-full bg-secondary mb-1"
             />
-          </div>
+          </div> */}
         </a>
       </div>
     </section>

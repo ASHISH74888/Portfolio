@@ -71,9 +71,9 @@ const Contact = () => {
         templateId,
         {
           user_name: form.name,
-          my_name: "Jayant Potdar",
+          my_name: "Ashish",
           user_email: form.email,
-          my_email: "jayantpotdar2006@gmail.com",
+          my_email: "singhashish74888@gmail.com",
           user_message: form.message,
         },
         publicKey

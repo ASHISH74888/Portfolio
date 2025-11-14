@@ -4,7 +4,6 @@ Welcome to my immersive 3D portfolio website! This project showcases my skills, 
 
 ![Portfolio Preview](https://github.com/Jayant-1/3D-Portfolio/blob/main/public/assets/nav-link-previews/home.png?raw=true)
 
-
 ## ✨ Features
 
 ### 🎮 Interactive 3D Elements
@@ -223,8 +222,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Portfolio**: [https://jayant-1.vercel.app/]
 - **GitHub**: [@Jayant-1](https://github.com/Jayant-1)
-- **LinkedIn**: [Jayant Potdar](https://www.linkedin.com/in/jayant-potdar-880a461b8/)
-- **Email**: jayantpotdar2006@gmail.com
+- **LinkedIn**: [Ashish Potdar](https://www.linkedin.com/in/jayant-potdar-880a461b8/)
+- **Email**: singhashish74888@gmail.com
 
 ---
 

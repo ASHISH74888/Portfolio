@@ -12,7 +12,6 @@ import {
   Works,
 } from "./components";
 import EasterEggs from "./components/EasterEggs";
-import ElasticCursor from "./components/ElasticCursor";
 import SkillKeyboard from "./components/SkillKeyboard";
 
 const App = () => {
@@ -23,7 +22,6 @@ const App = () => {
         className="relative z-0"
         style={{ backgroundColor: "hsl(222.2 84% 4.9%)" }}
       >
-        <ElasticCursor />
         <EasterEggs />
         <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
           <Navbar />
@@ -34,7 +32,7 @@ const App = () => {
         <Achievement />
         <SkillKeyboard />
         <Works />
-        <Feedbacks />
+        {/* <Feedbacks /> */}
         <div className="relative z-0">
           <Contact />
         </div>
