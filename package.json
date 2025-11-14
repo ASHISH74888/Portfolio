@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "chmod +x ./node_modules/.bin/vite"
   },
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
@@ -26,7 +27,7 @@
     "react-tilt": "^1.0.2",
     "react-vertical-timeline-component": "^3.6.0",
     "tailwind-merge": "^3.3.1",
-    "three": "^0.149.0"
+    "three": "^0.181.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
