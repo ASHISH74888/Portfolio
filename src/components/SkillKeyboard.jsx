@@ -119,7 +119,7 @@ const SkillKeyboard = () => {
   // Handle mouse hover events on the 3D keys
   const handleMouseHover = (e) => {
     if (!splineApp || selectedSkill?.name === e.target.name) return;
-    // If hovering over the keyboard body/platform, clear selection
+    // If hovering over keyboard body/platform, clear selection
     if (e.target.name === "body" || e.target.name === "platform") {
       setSelectedSkill(null);
       if (splineApp.getVariable("heading") && splineApp.getVariable("desc")) {
@@ -127,7 +127,31 @@ const SkillKeyboard = () => {
         splineApp.setVariable("desc", "");
       }
     } else {
-      // Otherwise, set the selected skill based on the key name
+      // Animate the previous selected keycap OUT
+      if (selectedSkill) {
+        const prevKeycap = splineApp.findObjectByName(selectedSkill.name);
+        if (prevKeycap) {
+          gsap.to(prevKeycap.scale, {
+            x: 1,
+            y: 1,
+            z: 1,
+            duration: 0.5,
+            ease: "expo.out",
+          });
+          // If color is animatable, consider adding color animation too.
+        }
+      }
+      // Animate the new hovered keycap IN
+      const newKeycap = splineApp.findObjectByName(e.target.name);
+      if (newKeycap) {
+        gsap.to(newKeycap.scale, {
+          x: 1.23,
+          y: 1.23,
+          z: 1.23,
+          duration: 0.65,
+          ease: "elastic.out(1,0.38)",
+        });
+      }
       if (!selectedSkill || selectedSkill.name !== e.target.name) {
         const skill = SKILLS[e.target.name];
         setSelectedSkill(skill);
@@ -292,13 +316,14 @@ const SkillKeyboard = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          padding: window.innerWidth < 400 ? '4px' : '',
         }}
       >
         <h2
           style={{
-            fontSize: "4rem",
+            fontSize: window.innerWidth < 370 ? '1.6rem' : window.innerWidth < 420 ? '2rem' : '4rem',
             fontWeight: 700,
-            marginTop: 34,
+            marginTop: window.innerWidth < 400 ? 10 : 34,
             textAlign: "center",
             letterSpacing: 2,
             color: "#fff",

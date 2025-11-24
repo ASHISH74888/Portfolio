@@ -13,6 +13,7 @@ import CanvasLoader from "./Loader";
 import Navbar from "./Navbar";
 import Preloader from "./preloader";
 import Works from "./Works";
+import SmoothScroll from "./SmoothScroll";
 
 export {
   About,
@@ -28,4 +29,5 @@ export {
   Preloader,
   StarsCanvas,
   Works,
+  SmoothScroll,
 };

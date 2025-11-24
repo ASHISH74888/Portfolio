@@ -53,18 +53,7 @@ const AchievementCard = ({ Achievement }) => {
             className="text-white-100 text-[14px] pl-1 tracking-wider"
           >
             {point}
-            {Achievement.credential && Achievement.credential[index] && (
-              <div className="my-2">
-                <a
-                  href={Achievement.credential[index]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 underline hover:text-blue-300 transition-colors duration-200"
-                >
-                  View Credential
-                </a>
-              </div>
-            )}
+            {/* Credentials removed */}
           </li>
         ))}
       </ul>

@@ -45,7 +45,7 @@ const About = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px] max-xs:text-[12px] max-xs:leading-[18px] max-xs:max-w-xs"
       >
         I'm a Full Stack-focused Software Engineer Intern at Bolt.Earth with
         hands-on experience delivering scalable backend microservices, real-time
@@ -68,7 +68,7 @@ const About = () => {
           Download Resume
         </span>
       </button>
-      <div className="mt-12 flex flex-wrap gap-10">
+      <div className="mt-12 flex flex-wrap gap-10 max-xs:gap-2">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

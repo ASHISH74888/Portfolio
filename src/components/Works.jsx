@@ -76,7 +76,7 @@ const Works = () => {
           <p className={`${styles.sectionSubText} `}>My work</p>
           <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
         </motion.div>
-        <div className="hero-text">
+        <div className="hero-text max-xs:text-[17px]">
           <motion.span
             variants={fadeIn("", "", 0.1, 1)}
             className="mt-3 text-secondary text-[30px] max-w-3xl leading-[50px]"
@@ -113,7 +113,7 @@ const Works = () => {
           </motion.span>
         </div>
 
-        <div className="mt-20 flex flex-wrap gap-7">
+        <div className="mt-20 flex flex-wrap gap-7 max-xs:mt-6 max-xs:gap-2">
           {projects.map((project, index) => (
             <ProjectCard key={`project-${index}`} index={index} {...project} />
           ))}

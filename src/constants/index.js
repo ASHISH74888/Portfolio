@@ -58,10 +58,6 @@ const achievements = [
     iconBg: "#383E56",
     date: "May 2024",
     points: ["Responsive Web Design", "JavaScript"],
-    credential: [
-      "https://freecodecamp.org/certification/Jayant-1/responsive-web-design",
-      "https://freecodecamp.org/certification/Jayant-1/responsive-web-design",
-    ],
   },
   {
     title: ["HackerRank"],
@@ -75,12 +71,6 @@ const achievements = [
       "CSS (Basic) Certificate",
       "Go (Basic) Certificate",
     ],
-    credential: [
-      "https://www.hackerrank.com/certificates/b011ba865ccf",
-      "https://www.hackerrank.com/certificates/633d92ea00fe",
-      "https://www.hackerrank.com/certificates/c9bfa3c0b9e7",
-      "https://www.hackerrank.com/certificates/b5ee5bc85229",
-    ],
   },
   {
     title: ["Certiport"],
@@ -89,10 +79,6 @@ const achievements = [
     iconBg: "#383E56",
     date: "Apr 2025",
     points: ["IT Specialist - HTML and CSS", "IT Specialist - Databases"],
-    credential: [
-      "https://www.credly.com/badges/c59ff7d1-7af2-4dcb-8c57-d2bd6a6d1f44/linked_in_profile",
-      "https://www.credly.com/badges/61128af2-38bc-4299-b862-157ba2ca2edb/linked_in_profile",
-    ],
   },
   {
     title: ["Coursera"],
@@ -101,7 +87,6 @@ const achievements = [
     iconBg: "#0056d2",
     date: "Jul 2025",
     points: ["IBM Full Stack Software Developer"],
-    credential: ["https://coursera.org/verify/professional-cert/8R7RY7URFI6O"],
   },
 ];
 
