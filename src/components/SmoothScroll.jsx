@@ -8,10 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 const SmoothScroll = ({ children }) => {
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 0.18, // ultra-low for supreme glide
+            duration: 0.005, // nearly instant, but still technically animated
             easing: (t) => t < 0.5
-                ? 16 * t * t * t * t * t // quintic in for soft start
-                : 1 - Math.pow(-2 * t + 2, 5) / 2, // quintic out for soft stop
+                ? 16 * t * t * t * t * t
+                : 1 - Math.pow(-2 * t + 2, 5) / 2, // quintic in-out
             direction: "vertical",
             gestureDirection: "vertical",
             smooth: true,

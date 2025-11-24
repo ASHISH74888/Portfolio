@@ -10,6 +10,7 @@ const Hero = () => {
   const [itemIndex, setItemIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const typeItem = () => {
@@ -31,6 +32,14 @@ const Hero = () => {
 
     return () => clearInterval(typingInterval);
   }, [charIndex, itemIndex]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 650px)");
+    setIsMobile(mediaQuery.matches);
+    const handleChange = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   return (
     <section className={`relative w-full h-screen mx-auto`} id="hero">
@@ -78,7 +87,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <ComputersCanvas />
+      {/* Only show 3D canvas if NOT on phone */}
+      {!isMobile && <ComputersCanvas />}
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
